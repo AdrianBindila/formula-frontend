@@ -1,4 +1,4 @@
-import {Container, Nav, Navbar, NavbarBrand, NavbarCollapse, NavbarText, NavLink} from "react-bootstrap";
+import {Container, Nav, Navbar, NavbarBrand, NavbarCollapse, NavbarText, NavDropdown, NavLink} from "react-bootstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faTractor} from "@fortawesome/free-solid-svg-icons";
 
@@ -12,9 +12,9 @@ export function TopNavbar() {
                 <NavLink href="/standings">Standings</NavLink>
             </Nav>
             <NavbarCollapse className="justify-content-end">
-                <NavbarText>
-                    Signed in as: Adrian
-                </NavbarText>
+                <NavDropdown title={"Signed in as Adrian"} id="basic-nav-dropdown">
+                    <NavDropdown.Item href="/logout">Log out</NavDropdown.Item>
+                </NavDropdown>
             </NavbarCollapse>
         </Container>
     </Navbar>)

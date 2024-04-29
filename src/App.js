@@ -5,6 +5,7 @@ import {Register} from "./components/Register";
 import {Home} from "./components/Home";
 import {TopNavbar} from "./components/TopNavbar";
 import {Admin} from "./components/Admin";
+import {Logout} from "./components/Logout";
 
 function App() {
     return (<BrowserRouter>
@@ -12,6 +13,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<LandingPage/>}/>
                 <Route path="/login" element={<Login/>}/>
+                <Route path="/logout" element={<Logout/>}/>
                 <Route path="/register" element={<Register/>}/>
                 <Route path="/home" element={<Home/>}/>
                 <Route path="/admin" element={<Admin/>}/>

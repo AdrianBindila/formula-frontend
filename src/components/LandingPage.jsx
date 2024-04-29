@@ -2,13 +2,19 @@ import {Button, Container} from "react-bootstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faFlagCheckered} from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 export default function LandingPage() {
     async function start() {
-        await axios.get("/start")
-            .then((res) => console.log(res))
+        await axios.get("/auth/start")
+            .then((res) => {
+                console.log(res);
+                navigator("/login")
+            })
             .catch((err) => console.log(err));
     }
+
+    const navigator = useNavigate();
 
     return (<Container className="my-5">
         <h2>Welcome to Formula Friends!</h2>
@@ -17,8 +23,6 @@ export default function LandingPage() {
         <p>Note: This website is a work in progress. <b>Invitation only</b>. </p>
         <p>Liberty Media don't sue pls.</p>
         <p> © Adrian-Ioan Bindila 2024</p>
-        <Button variant="danger" onClick={() => {
-            start()
-        }}><FontAwesomeIcon icon={faFlagCheckered}/> START</Button>
+        <Button variant="danger" onClick={start}><FontAwesomeIcon icon={faFlagCheckered}/> START</Button>
     </Container>);
 }
